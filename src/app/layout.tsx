@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body className={NotoNaskhArabic.className}>
-        <main className="max-w-[840px] mx-auto mt-24">{children}</main>
+        <main className="mx-auto mt-24 max-w-[840px]">{children}</main>
       </body>
     </html>
   )
