@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Noto_Naskh_Arabic } from 'next/font/google'
 import './globals.css'
 
-const NotoNaskhArabic = Noto_Naskh_Arabic({ subsets: ['arabic', 'latin'] })
+const NotoNaskhArabic = Noto_Naskh_Arabic({ subsets: ['arabic', 'latin'], weight: 'variable', preload: true })
 
 export const metadata: Metadata = {
   title: 'Techionary',
