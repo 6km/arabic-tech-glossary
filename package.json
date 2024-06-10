@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-table": "^8.17.3",
     "classnames": "^2.5.1",
+    "fuse.js": "^7.0.0",
     "hono": "^4.4.4",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "swr": "^2.2.5",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/node": "^20",
