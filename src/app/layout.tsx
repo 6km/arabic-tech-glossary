@@ -7,6 +7,9 @@ const NotoNaskhArabic = Noto_Naskh_Arabic({ subsets: ['arabic', 'latin'], weight
 export const metadata: Metadata = {
   title: 'Arabic Tech Glossary - معجم المصطلحات التقنية',
   description: 'معجم تقني يحتوي على قائمة بالمصطلحات الهامة التي تتعلق بالتقنية والبرمجة',
+  verification: {
+    google: 'Kf1s5xB9h-eA_F4--G4j0PouAq6_3_FrNlmIZayOVXU',
+  },
 }
 
 export default function RootLayout({
