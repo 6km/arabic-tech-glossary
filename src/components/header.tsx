@@ -1,6 +1,6 @@
 import useStore from '@/store'
 import Image from 'next/image'
-import { ChangeEventHandler, memo, useCallback } from 'react'
+import { memo } from 'react'
 import Input from './input'
 
 // wrapped in React.memo to prevent logo re-renders
@@ -12,12 +12,11 @@ HeaderLogo.displayName = 'HeaderLogo'
 // wrapped in React.memo to prevent input re-renders
 const SearchInput = memo(() => {
   const setQuery = useStore((state) => state.setQuery)
-  const handleQueryChange = useCallback<ChangeEventHandler<HTMLInputElement>>((ev) => {
+  const changeHandler = (ev: { target: { value: string | null } }) => {
     setQuery(ev.target.value)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }
 
-  return <Input onChange={handleQueryChange} placeholder="ابحث عن مصطلح..." />
+  return <Input onChange={changeHandler} placeholder="ابحث عن مصطلح..." />
 })
 SearchInput.displayName = 'SearchInput'
 

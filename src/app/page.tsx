@@ -7,6 +7,7 @@ import Error from '@/components/screens/error'
 import Loading from '@/components/screens/loading'
 import NoData from '@/components/screens/no-data'
 import Table from '@/components/table'
+import useDebouncedValue from '@/hooks/useDebouncedValue'
 import useStore from '@/store'
 import { Term } from '@/types'
 import { createColumnHelper } from '@tanstack/react-table'
@@ -52,11 +53,13 @@ const TermsTable = memo(() => {
     if (searchParams !== newParamsString) setSearchParams(newParamsString)
   }, [query, page])
 
+  const debouncedSearchParams = useDebouncedValue(searchParams, 750)
+
   const {
     data,
     error,
     isLoading: swr_isLoading,
-  } = useSWR(`/api/search?${searchParams}`, fetcher, {
+  } = useSWR(`/api/search?${debouncedSearchParams}`, fetcher, {
     revalidateOnMount: false,
     revalidateOnFocus: false,
     fallbackData: { result: [], totalPages: 0 },
