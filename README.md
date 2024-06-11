@@ -22,6 +22,8 @@
 
 ## التقنيات المستخدمة
 
+<div align="right">
+
 - Next.js
 - Tailwind CSS
 - Hono
@@ -30,6 +32,8 @@
 - Zustand
 - TanStack Table
 - Typescript
+
+</div>
 
 ## المساهمة
 
