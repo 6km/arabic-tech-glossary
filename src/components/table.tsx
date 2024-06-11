@@ -39,10 +39,7 @@ const Table = memo(
           {table.getRowModel().rows.map((row) => (
             <tr key={row.id}>
               {row.getVisibleCells().map((cell) => (
-                <td
-                  className="[&:not(:last-of-type):pe-3] break-all py-2 ps-0 align-top font-[500] leading-6"
-                  key={cell.id}
-                >
+                <td className="[&:not(:last-of-type):pe-3] py-2 ps-0 align-top font-[500] leading-6" key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
