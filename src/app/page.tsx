@@ -53,13 +53,11 @@ const TermsTable = memo(() => {
     if (searchParams !== newParamsString) setSearchParams(newParamsString)
   }, [query, page])
 
-  const debouncedSearchParams = useDebouncedValue(searchParams, 750)
-
   const {
     data,
     error,
     isLoading: swr_isLoading,
-  } = useSWR(`/api/search?${debouncedSearchParams}`, fetcher, {
+  } = useSWR(`/api/search?${searchParams}`, fetcher, {
     revalidateOnMount: false,
     revalidateOnFocus: false,
     fallbackData: { result: [], totalPages: 0 },

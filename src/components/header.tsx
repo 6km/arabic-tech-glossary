@@ -2,6 +2,7 @@ import useStore from '@/store'
 import Image from 'next/image'
 import { memo } from 'react'
 import Input from './input'
+import useDebouncedCallback from '@/hooks/useDebouncedCallback'
 
 // wrapped in React.memo to prevent logo re-renders
 const HeaderLogo = memo(() => (
@@ -12,9 +13,9 @@ HeaderLogo.displayName = 'HeaderLogo'
 // wrapped in React.memo to prevent input re-renders
 const SearchInput = memo(() => {
   const setQuery = useStore((state) => state.setQuery)
-  const changeHandler = (ev: { target: { value: string | null } }) => {
+  const changeHandler = useDebouncedCallback((ev: { target: { value: string | null } }) => {
     setQuery(ev.target.value)
-  }
+  }, 750)
 
   return <Input onChange={changeHandler} placeholder="ابحث عن مصطلح..." />
 })
