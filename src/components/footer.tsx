@@ -9,7 +9,7 @@ export default function Footer() {
 
       <Link
         target="_blank"
-        href="https://github.com/6km/techionary"
+        href="https://github.com/6km/arabic-tech-glossary"
         className="font-medium text-[#0C87FA] hover:underline"
       >
         تحرير الصفحة على GitHub
