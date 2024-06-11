@@ -1,4 +1,4 @@
-import { ColumnDef } from '@tanstack/react-table'
+import { AccessorKeyColumnDef, ColumnDef, ColumnHelper } from '@tanstack/react-table'
 
 export type Term = {
   arabic?: string
@@ -8,5 +8,5 @@ export type Term = {
 
 export interface TableProps {
   data: Term[]
-  columns: ColumnDef<unknown, any>[]
+  columns: AccessorKeyColumnDef<Term, string | undefined>[]
 }
