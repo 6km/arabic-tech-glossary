@@ -13,7 +13,8 @@ import { createColumnHelper } from '@tanstack/react-table'
 import { memo, useEffect, useState } from 'react'
 import useSWR from 'swr'
 
-const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json())
+const fetcher = (...args: [input: string | URL | Request, init?: RequestInit]) =>
+  fetch.apply(null, args).then((res) => res.json())
 
 const columnHelper = createColumnHelper<Term>()
 const columns = [
@@ -58,7 +59,6 @@ const TermsTable = memo(() => {
   } = useSWR(`/api/search?${searchParams}`, fetcher, {
     revalidateOnMount: false,
     revalidateOnFocus: false,
-    // revalidateIfStale: false,
     fallbackData: { result: [], totalPages: 0 },
     onSuccess: () => setLoading(false),
   })
