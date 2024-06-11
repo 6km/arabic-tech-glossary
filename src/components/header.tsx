@@ -1,8 +1,8 @@
+import useDebouncedCallback from '@/hooks/useDebouncedCallback'
 import useStore from '@/store'
 import Image from 'next/image'
 import { memo } from 'react'
 import Input from './input'
-import useDebouncedCallback from '@/hooks/useDebouncedCallback'
 
 // wrapped in React.memo to prevent logo re-renders
 const HeaderLogo = memo(() => (
