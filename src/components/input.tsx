@@ -1,13 +1,14 @@
+import cn from 'classnames'
 import React from 'react'
 
-export default function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
+export default function Input({ className, ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       type="text"
-      className="h-10 w-[280px] rounded-[6px] border border-[#D7DCE2] bg-[#E6EAEF] px-4 outline-none placeholder:text-[#9CA3AB]"
-      style={{
-        boxShadow: '0 8px 8px rgba(0,0,0,.1)',
-      }}
+      className={cn(
+        'h-11 rounded-xl border border-[#D7DCE2] bg-[#E6EAEF] px-4 text-[#0F172A] shadow-sm outline-none transition placeholder:text-slate-500 focus:border-[#0F172A]/40 focus:bg-white focus:ring-4 focus:ring-[#0F172A]/10',
+        className,
+      )}
       {...props}
     />
   )

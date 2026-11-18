@@ -19,12 +19,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl">
-      <head>
-        <link rel="icon" type="image/x-icon" href="icon.png" />
-      </head>
-
       <body className={NotoNaskhArabic.className}>
-        <main className="mx-auto mt-24 max-w-[840px]">{children}</main>
+        <main className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-16">{children}</main>
       </body>
     </html>
   )

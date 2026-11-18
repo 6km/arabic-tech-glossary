@@ -31,30 +31,30 @@ export default function Pagination({ total, current, onPageChange }: PaginationP
   if (total <= 0) return null
 
   return (
-    <div className="flex items-center justify-center gap-2">
+    <nav className="flex flex-wrap items-center justify-center gap-2" aria-label="ترقيم الصفحات">
       {total > pageCount && current > 5 && (
-        <Button className="font-bold" onClick={() => onPageChange(current - 1)} disabled={current === 1}>
-          &lt;
+        <Button onClick={() => onPageChange(current - 1)} disabled={current === 1} aria-label="الصفحة السابقة">
+          ‹
         </Button>
       )}
 
-      {visiblePages.map((pageNumber, index) => (
-        <span key={index}>
-          <Button
-            className="font-bold data-[active=true]:bg-[#0F172A] data-[active=true]:text-[#E2E8F0]"
-            data-active={current === pageNumber}
-            onClick={() => onPageChange(pageNumber)}
-          >
-            {pageNumber}
-          </Button>
-        </span>
+      {visiblePages.map((pageNumber) => (
+        <Button
+          key={pageNumber}
+          className="data-[active=true]:border-[#0F172A] data-[active=true]:bg-[#0F172A] data-[active=true]:text-white"
+          data-active={current === pageNumber}
+          onClick={() => onPageChange(pageNumber)}
+          aria-current={current === pageNumber ? 'page' : undefined}
+        >
+          {pageNumber}
+        </Button>
       ))}
 
       {total > pageCount && total - current > 4 && (
-        <Button className="font-bold" onClick={() => onPageChange(current + 1)} disabled={current === total}>
-          &gt;
+        <Button onClick={() => onPageChange(current + 1)} disabled={current === total} aria-label="الصفحة التالية">
+          ›
         </Button>
       )}
-    </div>
+    </nav>
   )
 }

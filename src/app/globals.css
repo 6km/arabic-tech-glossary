@@ -4,10 +4,11 @@
 
 :root {
   --foreground-rgb: 15, 23, 42;
-  --background-rgb: 252, 252, 253;
+  --background-rgb: 242, 244, 247;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: var(--background-start-rgb);
+  background: rgb(var(--background-rgb));
+  min-height: 100vh;
 }

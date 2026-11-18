@@ -16,37 +16,36 @@ const Table = memo(
     })
 
     return (
-      <table className="mt-0 w-full table-fixed text-right">
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th
-                  className="[&:not(:last-of-type):pe-3] mt-0 w-[280px] break-words pb-2 ps-0 pt-0 align-top leading-6"
-                  style={{
-                    textShadow: '0 0.01px',
-                  }}
-                  key={header.id}
-                >
-                  {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
+      <div className="overflow-x-auto rounded-2xl border border-[#D7DCE2] bg-white shadow-sm">
+        <table className="w-full min-w-[640px] table-fixed text-right">
+          <thead className="bg-[#E6EAEF] text-[#0F172A]">
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th
+                    className="px-4 py-3 text-sm font-semibold leading-6 sm:px-5"
+                    key={header.id}
+                  >
+                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
 
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td className="[&:not(:last-of-type):pe-3] py-2 ps-0 align-top font-[500] leading-6" key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+          <tbody className="divide-y divide-[#D7DCE2]">
+            {table.getRowModel().rows.map((row) => (
+              <tr key={row.id} className="transition-colors hover:bg-[#F2F4F7]">
+                {row.getVisibleCells().map((cell) => (
+                  <td className="px-4 py-3 align-top leading-7 text-[#0F172A] sm:px-5" key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     )
   },
   () => false,

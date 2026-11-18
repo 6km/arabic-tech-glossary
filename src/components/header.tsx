@@ -17,12 +17,12 @@ const SearchInput = memo(() => {
     setQuery(ev.target.value)
   }, 750)
 
-  return <Input onChange={changeHandler} placeholder="ابحث عن مصطلح..." />
+  return <Input onChange={changeHandler} placeholder="ابحث عن مصطلح..." aria-label="ابحث عن مصطلح" className="w-full sm:w-72" />
 })
 SearchInput.displayName = 'SearchInput'
 
 const Header = memo(() => (
-  <header className="justify flex items-center justify-between border-b border-b-[#D8DDE5] pb-8">
+  <header className="flex flex-col gap-5 border-b border-[#D7DCE2] pb-8 sm:flex-row sm:items-center sm:justify-between">
     <HeaderLogo />
     <SearchInput />
   </header>
