@@ -33,11 +33,9 @@ const columns = [
 ]
 
 const TermsTable = memo(() => {
-  const { query, page, setPage } = useStore((state) => ({
-    query: state.query,
-    page: state.page,
-    setPage: state.setPage,
-  }))
+  const query = useStore((state) => state.query)
+  const page = useStore((state) => state.page)
+  const setPage = useStore((state) => state.setPage)
   const [isLoading, setLoading] = useState(true)
   const [searchParams, setSearchParams] = useState<string>('')
 
@@ -84,9 +82,9 @@ export default function Home() {
     <>
       <Header />
 
-      <div className="my-8">
+      <section className="my-8 sm:my-10">
         <TermsTable />
-      </div>
+      </section>
 
       <Footer />
     </>
